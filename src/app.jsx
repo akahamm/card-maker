@@ -2,42 +2,60 @@
 
 import "./app.css";
 import Login from "./components/login/login";
-
+import Dashboard from "./components/dashboard/dashboard";
 import firebase from "firebase/app";
 import "firebase/auth";
+import {
+  BrowserRouter,
+  Switch,
+  Route,
+  Link,
+  useHistory,
+} from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 function App() {
-  // Google Login 처리
-  const handleGoogle = () => {
-    console.log("handle google!");
+  const history = useHistory();
+  const handleGoogle = (history) => {
     var provider = new firebase.auth.GoogleAuthProvider();
+
     firebase
       .auth()
       .signInWithPopup(provider)
-      .then(function (result) {
-        // This gives you a Google Access Token. You can use it to access the Google API.
+      .then((result) => {
         var token = result.credential.accessToken;
-        // The signed-in user info.
         var user = result.user;
-        // ...
         console.log(token);
         console.log(user);
-      })
-      .catch(function (error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // The email of the user's account used.
-        var email = error.email;
-        // The firebase.auth.AuthCredential type that was used.
-        var credential = error.credential;
-        // ...
+
+        // Go to user.email's dashboard
+        console.log(history);
+        history.push("/dashboard");
       });
+    // .catch((error) => {
+    //   // Handle Errors here.
+    //   var errorCode = error.code;
+    //   var errorMessage = error.message;
+    //   // The email of the user's account used.
+    //   var email = error.email;
+    //   // The firebase.auth.AuthCredential type that was used.
+    //   var credential = error.credential;
+    //   // ...
+    // });
   };
 
   return (
     <>
-      <Login onGoogle={handleGoogle}></Login>
+      <BrowserRouter>
+        <Switch>
+          <Route path={["/", "/login"]} exact>
+            <Login onGoogle={handleGoogle}></Login>
+          </Route>
+          <Route path="/dashboard">
+            <Dashboard></Dashboard>
+          </Route>
+        </Switch>
+      </BrowserRouter>
     </>
   );
 }

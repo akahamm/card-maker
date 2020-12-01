@@ -1,0 +1,99 @@
+/** @format */
+
+.header {
+  position: relative;
+  text-align: center;
+  background-color: darkblue;
+  color: white;
+  padding: 0.5em;
+}
+.header img {
+  max-width: 50px;
+}
+.logoutBtn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: black;
+  color: white;
+  padding: 4px 8px;
+  font-weight: 600;
+}
+.content {
+  display: flex;
+  background-color: white;
+}
+.listsBox {
+  display: flex;
+  width: 100%;
+  color: black;
+  padding: 5px 10px;
+  flex-direction: column;
+}
+.lists {
+  width: 50%;
+}
+.listsHeader,
+.previewHeader {
+  margin: 20px 0;
+  text-align: center;
+}
+.list {
+  margin: 0 0 30px 0;
+}
+.container {
+  display: flex;
+}
+.name,
+.company,
+.color,
+.job,
+.email,
+.description {
+  flex-grow: 1;
+}
+.color {
+  flex-grow: 100;
+}
+.selectBtn,
+.deleteBtn {
+  border: 1px solid black;
+  flex-grow: 1;
+  cursor: pointer;
+  padding: 5px 10px;
+  text-align: center;
+}
+.selectBtn {
+  background-color: lightblue;
+}
+.deleteBtn {
+  background-color: darkcyan;
+}
+.preview {
+  width: 50%;
+}
+.previewBox {
+  display: flex;
+  flex-direction: column;
+}
+.card {
+  display: flex;
+  /* width: 100%; */
+  margin: 5px 20px;
+  padding: 25px 30px;
+  border-radius: 5px;
+  box-shadow: 3.5px 3.5px 5px 0px rgba(138, 138, 138, 1);
+  background-color: white;
+}
+.cardImg {
+  /* width: 30%; */
+}
+.cardImg img {
+  max-width: 120px;
+}
+.cardContent {
+  /* width: 70%; */
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 50px;
+}

@@ -31,3 +31,19 @@ h4 {
 button {
   all: unset;
 }
+
+input {
+  all: unset;
+  border: 1px solid gray;
+  border-collapse: separate;
+  padding: 5px 10px;
+}
+select {
+  border: 1px solid gray;
+  border-collapse: separate;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+}
